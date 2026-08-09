@@ -27,5 +27,54 @@ h1{max-width:850px;font-size:clamp(54px,6.6vw,94px);line-height:.97;letter-spaci
 footer{background:#02050c;color:white;padding:78px max(28px,calc((100vw - 1184px)/2)) 30px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:50px}footer p{color:#7697d4;text-transform:uppercase;font-family:var(--font-mono);font-size:9px;letter-spacing:.14em}footer h2{font-family:var(--font-display);font-size:clamp(43px,5.6vw,72px);font-weight:400;margin:15px 0;max-width:750px}footer>a{border-bottom:1px solid #33435c;padding:12px 0;font-family:var(--font-mono);font-size:10px}.footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid #1b2a40;padding-top:24px;margin-top:45px;color:#6d7d95;font-family:var(--font-mono);font-size:8px;text-transform:uppercase;letter-spacing:.07em}
 @media(max-width:900px){nav{display:none}.hero{grid-template-columns:1fr;gap:45px;padding-top:80px}.hero-console{max-width:600px}.signal-strip{grid-template-columns:1fr}.signal-strip div{border-right:0;border-bottom:1px solid var(--line);padding-left:0}.section-heading,.about-grid{grid-template-columns:1fr;display:grid;gap:28px}.process-grid{grid-template-columns:1fr 1fr}.process-grid article:nth-child(2){border-right:0}.process-grid article:nth-child(-n+2){border-bottom:1px solid var(--line)}.sitelink-win{grid-template-columns:1fr 1fr}.sitelink-result{grid-column:1/-1;border-left:0;border-top:1px solid #31496d;padding:22px 0 0}.case-detail{grid-template-columns:1fr;gap:20px}}
 @media(max-width:620px){.site-header{padding:0 18px}.brand-copy{display:none}.header-cta{font-size:8px}.hero{padding:65px 18px}.hero-actions{align-items:flex-start;flex-direction:column}.section{padding:78px 18px}.case{grid-template-columns:1fr}.case-index{margin-bottom:22px}.metric-grid,.engagement-grid,.process-grid,.capability-grid{grid-template-columns:1fr}.metric-grid{gap:1px}.case-detail{margin-top:25px}.process-grid article{border-right:0!important;border-bottom:1px solid var(--line)!important;min-height:auto}.capability-grid article,.capability-grid article:nth-child(even){grid-template-columns:1fr;padding:24px 0;border-right:0}.sitelink-win{grid-template-columns:1fr;padding:28px}.toolbox{grid-template-columns:1fr}.signal-strip strong{font-size:28px}.signal-strip div{grid-template-columns:70px 1fr}.footer-bottom{flex-direction:column;gap:10px}footer{grid-template-columns:1fr}footer>a{word-break:break-all}h1{font-size:51px}.section-heading h2{font-size:45px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
+/* Readability pass: keep the compact audit aesthetic without sub-11px text. */
+.brand-copy small,
+nav,
+.header-cta,
+.eyebrow,
+.button,
+.console-top,
+.console-title small,
+.hero-console dt,
+.hero-console span,
+.console-note,
+.case-label,
+.case-context,
+.metric>span,
+.metric small,
+.case-detail h4,
+.tags span,
+.engagement-grid article>p:first-child,
+.status-row span,
+.sitelink-result small,
+.process-grid span,
+.toolbox>p,
+.toolbox span,
+footer p,
+footer>a,
+.footer-bottom{font-size:12px}
+
+.hero-console dd,
+.signal-strip span,
+.section-heading>p,
+.case-detail p,
+.case-detail li,
+.engagement-body,
+.sitelink-win>div:nth-child(2) p,
+.sitelink-result span,
+.process-grid p,
+.capability-grid p{font-size:14px}
+
+.console-top,
+.console-title small,
+.hero-console dt,
+.hero-console span,
+.console-note,
+.case-context,
+.metric small,
+.sitelink-result small,
+.footer-bottom{line-height:1.55}
+
+@media(max-width:620px){.header-cta{font-size:11px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
