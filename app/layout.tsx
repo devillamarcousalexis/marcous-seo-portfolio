@@ -2,13 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Marcous Alexis De Villa — Technical SEO Lead",
-  description: "Technical SEO Lead turning validated audit evidence into implementation-ready handoffs, production-safe fixes, and measurable outcomes.",
-  other: { "codex-preview": "development" },
+  metadataBase: new URL("https://marcous-seo-portfolio.vercel.app"),
+  title: "Technical SEO Lead & Consultant | Marcous De Villa",
+  description: "Technical SEO audits, indexation diagnostics, developer handoffs, and post-deployment verification for growing and business-critical websites.",
+  alternates: { canonical: "/" },
+  openGraph: { title: "Technical SEO Lead & Consultant | Marcous De Villa", description: "Technical SEO recommendations that make it into production—from diagnosis and prioritization to developer handoff and verification.", url: "/", siteName: "Marcous De Villa — Technical SEO", type: "website" },
+  twitter: { card: "summary", title: "Technical SEO Lead & Consultant | Marcous De Villa", description: "Technical SEO recommendations that make it into production." },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
-}
+const structuredData = {
+  "@context": "https://schema.org", "@type": "Person", name: "Marcous Alexis De Villa", url: "https://marcous-seo-portfolio.vercel.app", jobTitle: "Technical SEO Lead & Organic Search Consultant",
+  knowsAbout: ["Technical SEO", "Search engine optimization", "Website indexation", "Site architecture", "Core Web Vitals", "Structured data"],
+};
 
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body></html>;
+}

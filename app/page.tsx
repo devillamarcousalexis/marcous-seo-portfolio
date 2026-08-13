@@ -1,236 +1,127 @@
-const measuredCaseStudies = [
-  {
-    number: "01",
-    label: "Indexation recovery",
-    title: "Restoring index coverage for an Australian health clinic",
-    context: "Anonymized client · Australian digital marketing agency",
-    challenge:
-      "Important pages were being discovered but not consistently indexed, limiting the site’s ability to build search visibility.",
-    work: [
-      "Audited Google Search Console coverage alongside live crawl evidence",
-      "Separated confirmed indexation blockers from low-priority observations",
-      "Prepared implementation-ready handoffs and coordinated with developers",
-      "Revalidated the affected page set after implementation",
-    ],
-    metrics: [
-      ["25", "178", "Indexed pages"],
-      ["75", "18", "Discovered, not indexed"],
-    ],
-    outcome:
-      "A substantially larger share of the site became eligible to compete in search, while the principal discovery backlog was reduced.",
-    tools: ["Google Search Console", "Screaming Frog", "Developer handoff", "Post-launch QA"],
-  },
-  {
-    number: "02",
-    label: "Crawl & indexation",
-    title: "Clearing indexation exclusions for an investment marketplace",
-    context: "Anonymized client · Australian digital marketing agency",
-    challenge:
-      "A private-equity marketplace had a small indexed footprint and a high proportion of discovered or crawled URLs that Google had not indexed.",
-    work: [
-      "Investigated coverage patterns across GSC and the live site architecture",
-      "Converted validated findings into developer-ready implementation tasks",
-      "Tracked implementation status and verified outcomes after release",
-    ],
-    metrics: [
-      ["15", "63", "Indexed pages"],
-      ["83", "0", "Discovered, not indexed"],
-      ["6", "0", "Crawled, not indexed"],
-    ],
-    outcome:
-      "The excluded URL groups shown in the engagement evidence were cleared while the number of indexed pages increased more than fourfold.",
-    tools: ["Google Search Console", "Crawl validation", "Issue prioritization", "Developer QA"],
-  },
-  {
-    number: "03",
-    label: "Redirect & canonical cleanup",
-    title: "Reducing technical noise across local-service websites",
-    context: "Anonymized client examples · Australian agency engagement",
-    challenge:
-      "Redirected URLs and conflicting canonical signals were consuming crawl attention and weakening otherwise straightforward site structures.",
-    work: [
-      "Mapped internal redirect references and canonical inconsistencies",
-      "Specified safe destination URLs and source-level updates",
-      "Coordinated implementation and ran post-change crawls for acceptance",
-    ],
-    metrics: [
-      ["149", "29", "Redirect URLs · automotive"],
-      ["38", "6", "Redirect URLs · dental"],
-      ["15", "0", "Alternate canonicals · dental"],
-    ],
-    outcome:
-      "Cleaner internal signals, fewer unnecessary crawl hops, and an implementation trail that developers and account teams could verify.",
-    tools: ["Screaming Frog", "Redirect mapping", "Canonical QA", "Implementation tracking"],
-  },
-];
-
-const currentEngagements = [
-  {
-    sector: "Financial services",
-    title: "U.S. alternative investment marketplace",
-    body: "Technical SEO oversight for a platform focused on certificates of deposit and access to pre-IPO opportunities.",
-    status: ["Technical SEO healthy", "Security headers healthy", "Page-speed baseline healthy"],
-  },
-  {
-    sector: "Multi-industry local services",
-    title: "Florida digital agency portfolio",
-    body: "Audit and implementation guidance across HVAC, roofing, and other service-business websites in Florida.",
-    status: ["Technical SEO healthy", "Security headers healthy", "Page-speed baseline healthy"],
-  },
-];
-
-const capabilities = [
-  ["Evidence-led audits", "GSC findings are cross-validated against crawl data, live-page behavior, architecture, and implementation context."],
-  ["Developer handoffs", "Exact scope, priority, implementation logic, safeguards, acceptance criteria, and QA steps—ready for engineering."],
-  ["SEO execution", "Metadata, internal linking, redirects, content, CMS changes, and other actionable work completed independently."],
-  ["Deployment QA", "Implementation review, regression checks, and post-release validation that closes the loop between audit and outcome."],
+const problems = [
+  ["01", "Important pages are not being indexed", "Separate genuine indexation barriers from URLs that do not belong in search."],
+  ["02", "Multiple URLs compete for the same intent", "Clarify page ownership and consolidate signals without removing useful coverage."],
+  ["03", "Redirects and canonicals conflict", "Trace legacy signals, internal references, and intended destinations before changing them."],
+  ["04", "A migration introduces search risk", "Protect discovery, equity, and indexation through pre-launch requirements and post-launch QA."],
+  ["05", "The audit never reaches production", "Convert findings into scoped requirements developers can implement and verify."],
+  ["06", "Organic performance changes unexpectedly", "Reconcile crawl, Search Console, analytics, releases, and page-level evidence."],
 ];
 
 const process = [
-  ["01", "Investigate", "Collect signals from Search Console, crawl exports, page templates, and live behavior."],
-  ["02", "Validate", "Confirm the cause, affected scope, search impact, dependencies, and production risk."],
-  ["03", "Make it executable", "Separate SEO actions from developer work and define what ‘done’ must look like."],
-  ["04", "Ship & verify", "Coordinate delivery, inspect the implementation, and validate the result after release."],
+  ["01", "Investigate", "Collect crawl, Search Console, analytics, rendering, site-file, and implementation evidence."],
+  ["02", "Diagnose", "Separate actual search problems from expected exclusions, harmless conditions, and reporting noise."],
+  ["03", "Prioritize", "Rank work by search impact, business risk, implementation effort, dependencies, and reversibility."],
+  ["04", "Hand off", "Define affected scope, expected behavior, safeguards, acceptance criteria, and ownership."],
+  ["05", "Verify", "Re-crawl and inspect source, rendered output, redirects, canonicals, schema, and platform evidence."],
+  ["06", "Monitor", "Track indexation, visibility, regressions, unresolved dependencies, and post-release outcomes."],
+];
+
+const decisions = [
+  ["Crawled, currently not indexed", "Determine whether the URL deserves indexation before trying to force it into Google."],
+  ["Redirected URL", "Confirm that the redirect is intentional and that internal references point to the final destination."],
+  ["Duplicate page", "Establish the correct page owner and whether to merge, redirect, canonicalize, or retain both."],
+  ["Canonical difference", "Compare declared, rendered, linked, sitemap, and Google-selected canonical signals."],
+  ["Orphan URL", "Confirm whether the page is valuable, obsolete, newly published, or intentionally isolated."],
+  ["Long title", "Assess search intent and SERP clarity before shortening useful wording."],
+];
+
+const caseStudies = [
+  {
+    number: "01", label: "Indexation recovery", title: "Restoring index coverage for a healthcare website", context: "Anonymized healthcare client · Agency engagement",
+    problem: "Important pages were being discovered but were not consistently entering Google’s index.",
+    evidence: "Google Search Console coverage was reconciled with live crawl evidence and page-level implementation checks.",
+    decision: "Focus engineering effort on validated blockers while leaving expected or low-value exclusions alone.",
+    work: "Prepared implementation-ready requirements, coordinated the affected fixes, and revalidated the page set after release.",
+    metrics: [["25", "178", "Indexed pages"], ["75", "18", "Discovered—not indexed"]],
+    outcome: "A larger share of the website became indexed while the principal discovery backlog was substantially reduced.",
+  },
+  {
+    number: "02", label: "Crawl and indexation", title: "Clearing exclusion groups for an investment marketplace", context: "Anonymized financial-services client · Agency engagement",
+    problem: "A marketplace had a small indexed footprint and a high proportion of discovered or crawled URLs outside the index.",
+    evidence: "Coverage patterns were checked against site architecture, live URL behavior, and the implementation state.",
+    decision: "Prioritize the patterns with a confirmed path to indexation instead of treating every GSC exclusion as an error.",
+    work: "Converted the diagnosis into developer tasks, tracked implementation, and verified the affected groups after deployment.",
+    metrics: [["15", "63", "Indexed pages"], ["83", "0", "Discovered—not indexed"], ["6", "0", "Crawled—not indexed"]],
+    outcome: "The documented exclusion groups were cleared while indexed pages increased more than fourfold during the measured period.",
+  },
+  {
+    number: "03", label: "Redirect and canonical cleanup", title: "Reducing crawl noise across service websites", context: "Anonymized local-service clients · Agency engagement",
+    problem: "Internal redirect references and conflicting canonical signals weakened otherwise straightforward site structures.",
+    evidence: "Crawl exports were used to trace source URLs, destination behavior, canonical declarations, and internal references.",
+    decision: "Update internal sources and canonical signals without disturbing redirects that still served a valid legacy purpose.",
+    work: "Specified safe destinations, coordinated source-level updates, and ran post-change acceptance crawls.",
+    metrics: [["149", "29", "Redirect URLs · automotive"], ["38", "6", "Redirect URLs · dental"], ["15", "0", "Alternate canonicals · dental"]],
+    outcome: "The implementations produced cleaner internal signals and fewer unnecessary crawl hops across the measured sites.",
+  },
+];
+
+const services = [
+  ["Technical SEO audits", "Crawlability, indexation, canonicals, redirects, sitemaps, structured data, rendering, performance, and site architecture."],
+  ["Indexation diagnostics", "GSC exclusions, Google-selected canonicals, sitemap reconciliation, unexpected visibility changes, and page eligibility."],
+  ["Content architecture", "Keyword-to-URL ownership, cannibalization, internal linking, and keep, refresh, merge, redirect, or remove decisions."],
+  ["Implementation and verification", "Developer-ready handoffs, WordPress and Laravel support, migration QA, deployment validation, and regression checks."],
+  ["Monthly technical oversight", "Technical monitoring, new-page QA, implementation follow-through, KPI history, and cross-functional support."],
 ];
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Marcous De Villa, home">
-          <span className="monogram">MDV</span>
-          <span className="brand-copy"><strong>Marcous De Villa</strong><small>Technical SEO Lead</small></span>
-        </a>
-        <nav aria-label="Main navigation">
-          <a href="#work">Evidence</a>
-          <a href="#system">My system</a>
-          <a href="#about">About</a>
-        </nav>
-        <a className="header-cta" href="mailto:devillamarcousalexis@gmail.com">Start a conversation <span>↗</span></a>
+        <a className="brand" href="#top" aria-label="Marcous De Villa, home"><span className="monogram" aria-hidden="true">MDV</span><span className="brand-copy"><strong>Marcous De Villa</strong><small>Technical SEO Lead &amp; Consultant</small></span></a>
+        <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Case studies</a><a href="#process">Process</a><a href="#about">About</a></nav>
+        <a className="header-cta" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20enquiry">Discuss a website <span>↗</span></a>
       </header>
 
-      <section className="hero" id="top">
+      <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> Technical SEO Lead · Audit to implementation</p>
-          <h1>I make technical SEO <em>clear, executable,</em> and safe to ship.</h1>
-          <p className="hero-intro">
-            I own the path from investigation to deployment: validating complex search issues,
-            translating evidence into implementation-ready handoffs, and working with developers through QA.
-          </p>
-          <div className="hero-actions">
-            <a className="button primary" href="#work">Review the evidence <span>↓</span></a>
-            <a className="button text" href="#system">See how I work <span>→</span></a>
-          </div>
+          <p className="eyebrow"><span /> Technical SEO Lead &amp; Organic Search Consultant</p>
+          <h1 id="hero-title">Technical SEO recommendations that <em>make it into production.</em></h1>
+          <p className="hero-intro">I help growing businesses diagnose crawling, indexation, page-ownership, and website-quality issues—then translate the findings into prioritized developer handoffs and verify the implementation after deployment.</p>
+          <p className="service-line">Technical audits <i>·</i> Indexation diagnostics <i>·</i> Content architecture <i>·</i> Implementation QA</p>
+          <div className="hero-actions"><a className="button primary" href="#work">View technical SEO work <span>↓</span></a><a className="button secondary" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20enquiry">Discuss a website <span>↗</span></a></div>
+          <p className="trust-line">Google Search Console · Screaming Frog · GA4 · WordPress · Laravel · Cloudflare</p>
         </div>
-        <aside className="hero-console" aria-label="Professional operating profile">
-          <div className="console-top"><span>OPERATING PROFILE</span><span className="live"><i /> AVAILABLE REMOTELY</span></div>
-          <div className="console-title"><small>PRIMARY FUNCTION</small><strong>Technical SEO ownership</strong></div>
-          <dl>
-            <div><dt>01</dt><dd>Audit &amp; diagnosis</dd><span>LEAD</span></div>
-            <div><dt>02</dt><dd>Implementation handoff</dd><span>LEAD</span></div>
-            <div><dt>03</dt><dd>SEO-side execution</dd><span>SHIP</span></div>
-            <div><dt>04</dt><dd>Developer QA</dd><span>VERIFY</span></div>
-          </dl>
-          <p className="console-note">Development-literate. Production-conscious. Built for distributed teams.</p>
+        <aside className="hero-console" aria-label="Technical SEO operating model">
+          <div className="console-top"><span>ENGAGEMENT MODEL</span><span className="live"><i /> AVAILABLE REMOTELY</span></div>
+          <div className="console-title"><small>CORE RESPONSIBILITY</small><strong>Diagnosis through verification</strong></div>
+          <dl><div><dt>01</dt><dd>Evidence collection</dd><span>INVESTIGATE</span></div><div><dt>02</dt><dd>Technical diagnosis</dd><span>VALIDATE</span></div><div><dt>03</dt><dd>Implementation handoff</dd><span>SPECIFY</span></div><div><dt>04</dt><dd>Post-deployment QA</dd><span>VERIFY</span></div></dl>
+          <p className="console-note">Development-literate. Production-conscious. Clear enough for developers and stakeholders.</p>
         </aside>
       </section>
 
-      <section className="signal-strip" aria-label="Professional proof points">
-        <div><strong>≈20</strong><span>full-site audits in a two-month agency engagement</span></div>
-        <div><strong>4×+</strong><span>indexed-page growth in a documented client example</span></div>
-        <div><strong>0</strong><span>speculative issues promoted without validation</span></div>
+      <section className="section problems" aria-labelledby="problems-heading">
+        <div className="section-heading"><div><p className="eyebrow"><span /> Business-critical search problems</p><h2 id="problems-heading">When technical SEO becomes a business problem.</h2></div><p>The visible symptom is often not the root cause. The investigation has to establish what is affected, why it matters, and what can change safely.</p></div>
+        <div className="problem-grid">{problems.map(([number, title, body]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
-      <section className="section work" id="work">
-        <div className="section-heading">
-          <div><p className="eyebrow"><span /> Documented outcomes</p><h2>Evidence over adjectives.</h2></div>
-          <p>Client and agency identities are anonymized. Figures below come from engagement evidence; no unverified traffic or revenue attribution is claimed.</p>
-        </div>
-        <div className="case-list">
-          {measuredCaseStudies.map((item) => (
-            <article className="case" key={item.number}>
-              <div className="case-index"><span>{item.number}</span><i /></div>
-              <div className="case-main">
-                <p className="case-label">{item.label}</p>
-                <h3>{item.title}</h3>
-                <p className="case-context">{item.context}</p>
-                <p className="challenge">{item.challenge}</p>
-                <div className="metric-grid">
-                  {item.metrics.map(([before, after, label]) => (
-                    <div className="metric" key={label}>
-                      <span>{label}</span><div><del>{before}</del><i>→</i><strong>{after}</strong></div><small>before / after</small>
-                    </div>
-                  ))}
-                </div>
-                <div className="case-detail">
-                  <div><h4>My contribution</h4><ul>{item.work.map((point) => <li key={point}>{point}</li>)}</ul></div>
-                  <div><h4>Outcome</h4><p>{item.outcome}</p></div>
-                </div>
-                <div className="tags">{item.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
-              </div>
-            </article>
-          ))}
-        </div>
+      <section className="section process" id="process" aria-labelledby="process-heading">
+        <div className="section-heading"><div><p className="eyebrow light"><span /> From evidence to implementation</p><h2 id="process-heading">A closed-loop technical SEO process.</h2></div><p>An audit is useful only when teams can understand the decision, implement it safely, and verify that production behaves as intended.</p></div>
+        <div className="process-grid">{process.map(([number, title, body]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
-      <section className="section current-work" aria-labelledby="current-heading">
-        <div className="section-heading compact">
-          <div><p className="eyebrow"><span /> Current engagements</p><h2 id="current-heading">Healthy foundations. Early momentum.</h2></div>
-          <p>Work began July 17, 2026. Longer-term organic performance is still accumulating, so these are presented as verified implementation and health signals—not mature growth studies.</p>
-        </div>
-        <div className="engagement-grid">
-          {currentEngagements.map((item) => (
-            <article key={item.title}>
-              <p>{item.sector}</p><h3>{item.title}</h3><div className="status-row">{item.status.map((status) => <span key={status}><i />{status}</span>)}</div><p className="engagement-body">{item.body}</p>
-            </article>
-          ))}
-        </div>
-        <article className="sitelink-win">
-          <div><p className="case-label">Early implementation outcome</p><h3>Supporting Google’s display of organic sitelinks</h3></div>
-          <div>
-            <p>A Florida home-services referral platform wanted greater prominence in its branded search result. I investigated how Google interpreted its pages and site structure, then prepared the audit findings and implementation handoff.</p>
-            <p>Following implementation, Google began displaying two organic sitelinks beneath the primary branded result. Because sitelinks are selected algorithmically, I present this as a supported outcome—not a guaranteed or solely attributable result.</p>
-          </div>
-          <div className="sitelink-result"><strong>2</strong><span>organic sitelinks observed</span><small>Audit · investigation · handoff · validation</small></div>
-        </article>
+      <section className="section judgment" aria-labelledby="judgment-heading">
+        <div className="judgment-intro"><p className="eyebrow"><span /> Technical judgment</p><h2 id="judgment-heading">Not every SEO warning needs a fix.</h2><p>SEO tools surface conditions—not final diagnoses. I validate findings against search intent, indexation behavior, canonical signals, internal linking, site architecture, business purpose, and implementation risk before recommending a change.</p></div>
+        <div className="decision-table" role="table" aria-label="Examples of findings and required investigation"><div className="decision-head" role="row"><span role="columnheader">Tool finding</span><span role="columnheader">Investigation required</span></div>{decisions.map(([finding, investigation]) => <div className="decision-row" role="row" key={finding}><strong role="cell">{finding}</strong><span role="cell">{investigation}</span></div>)}</div>
       </section>
 
-      <section className="section system" id="system">
-        <div className="section-heading">
-          <div><p className="eyebrow light"><span /> My operating system</p><h2>Not another audit deck.</h2></div>
-          <p>My process was developed through hands-on SEO and implementation work. Its purpose is simple: reduce ambiguity before a task reaches production.</p>
-        </div>
-        <div className="process-grid">
-          {process.map(([number, title, body]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{body}</p></article>)}
-        </div>
-        <div className="capability-grid">
-          {capabilities.map(([title, body]) => <article key={title}><h3>{title}</h3><p>{body}</p></article>)}
-        </div>
-        <div className="toolbox">
-          <p>Working toolkit</p>
-          <div>{["Google Search Console", "Screaming Frog", "Ahrefs", "Semrush", "PageSpeed Insights", "WordPress", "Laravel", "Cloudflare", "HTML / CSS / JavaScript"].map((tool) => <span key={tool}>{tool}</span>)}</div>
-        </div>
+      <section className="section work" id="work" aria-labelledby="work-heading">
+        <div className="section-heading"><div><p className="eyebrow"><span /> Selected case studies</p><h2 id="work-heading">Evidence over adjectives.</h2></div><p>Client identities are anonymized. Figures come from retained engagement evidence, and no unverified traffic, revenue, or causal attribution is claimed.</p></div>
+        <div className="case-list">{caseStudies.map((item) => <article className="case" key={item.number}><div className="case-index"><span>{item.number}</span><i /></div><div className="case-main"><p className="case-label">{item.label}</p><h3>{item.title}</h3><p className="case-context">{item.context}</p><div className="case-story"><div><h4>Problem</h4><p>{item.problem}</p></div><div><h4>Evidence</h4><p>{item.evidence}</p></div><div><h4>Decision</h4><p>{item.decision}</p></div><div><h4>Implementation</h4><p>{item.work}</p></div></div><div className="metric-grid">{item.metrics.map(([before, after, label]) => <div className="metric" key={label}><span>{label}</span><div><del>{before}</del><i>→</i><strong>{after}</strong></div><small>before / after</small></div>)}</div><div className="outcome"><h4>Verified outcome</h4><p>{item.outcome}</p></div></div></article>)}</div>
       </section>
 
-      <section className="section about" id="about">
-        <p className="eyebrow"><span /> About Marcous</p>
-        <div className="about-grid">
-          <h2>Technical depth.<br />Clear direction.<br /><em>Calm ownership.</em></h2>
-          <div>
-            <p>I&apos;m Marcous Alexis De Villa, a Technical SEO specialist based in the Philippines. I&apos;m most effective when I can own technical audits, prioritize validated opportunities, and work directly with developers through implementation and QA.</p>
-            <p>My Laravel and full-stack background lets me investigate at code level, assess engineering constraints, and implement appropriate fixes myself. For template, infrastructure, or application-level work, I create handoffs detailed enough that developers do not need to repeat the investigation.</p>
-            <p>I&apos;ve worked across distributed agency and in-house environments, including financial services, healthcare, and multi-industry local-service websites.</p>
-            <a className="button primary" href="mailto:devillamarcousalexis@gmail.com">Discuss a role <span>↗</span></a>
-          </div>
-        </div>
+      <section className="section services" id="services" aria-labelledby="services-heading">
+        <div className="section-heading"><div><p className="eyebrow light"><span /> Services</p><h2 id="services-heading">Technical SEO that reaches implementation.</h2></div><p>Engagements can begin with a focused health check, expand into a full investigation, or continue as ongoing technical oversight.</p></div>
+        <div className="service-grid">{services.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+        <div className="service-package"><div><p className="case-label">Recommended starting point</p><h3>Technical SEO Health Check</h3></div><p>A focused review of crawling, indexation, canonicals, redirects, sitemaps, internal linking, Search Console issues, and Core Web Vitals—with a prioritized action plan and developer-ready requirements for critical findings.</p><a className="button primary" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20Health%20Check">Ask about the health check <span>↗</span></a></div>
       </section>
 
-      <footer>
-        <div><p>Technical SEO Lead · Remote</p><h2>Bring me the difficult search problem.</h2></div>
-        <a href="mailto:devillamarcousalexis@gmail.com">devillamarcousalexis@gmail.com <span>↗</span></a>
-        <div className="footer-bottom"><span>© 2026 Marcous Alexis De Villa</span><span>Calapan City, Philippines · Available for remote teams</span></div>
-      </footer>
+      <section className="section about" id="about" aria-labelledby="about-heading">
+        <p className="eyebrow"><span /> About Marcous</p><div className="about-grid"><h2 id="about-heading">Technical depth.<br />Clear direction.<br /><em>Calm ownership.</em></h2><div><p>I&apos;m a technical SEO specialist with a development background in Laravel and full-stack web projects. That experience helps me investigate SEO issues at the implementation level, communicate clearly with developers, and distinguish reporting symptoms from actual technical causes.</p><p>My work does not stop after an audit is delivered. I create implementation-ready requirements, support development and content teams, verify deployed changes, and monitor whether the intended search signals are working correctly.</p><p>I&apos;ve worked across financial services, consumer platforms, healthcare, professional services, and content-driven websites, with a particular focus on crawlability, indexation, canonicals, redirects, site architecture, and technical quality assurance.</p><p>Based in the Philippines, I&apos;m comfortable collaborating asynchronously with distributed teams and documenting decisions so implementation does not depend on another meeting.</p></div></div>
+      </section>
+
+      <section className="final-cta" aria-labelledby="contact-heading"><p className="eyebrow light"><span /> Start with the symptoms</p><h2 id="contact-heading">Tell me what is happening with your website.</h2><p>If your team is dealing with indexation problems, conflicting URLs, technical regressions, or an audit that has not reached production, tell me what you are seeing and what has already been attempted.</p><a className="button primary" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20website%20discussion">Discuss your website <span>↗</span></a></section>
+
+      <footer><div className="footer-brand"><strong>Marcous Alexis De Villa</strong><span>Technical SEO Lead &amp; Organic Search Consultant</span></div><a href="mailto:devillamarcousalexis@gmail.com">devillamarcousalexis@gmail.com <span>↗</span></a><div className="footer-bottom"><span>© 2026 Marcous Alexis De Villa</span><span>Calapan City, Philippines · Available for remote work</span></div></footer>
     </main>
   );
 }
-
