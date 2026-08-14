@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import EventTracker from "./event-tracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://marcous-seo-portfolio.vercel.app"),
@@ -17,5 +18,5 @@ const structuredData = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body></html>;
+  return <html lang="en"><body>{children}<EventTracker /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /></body></html>;
 }

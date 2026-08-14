@@ -68,7 +68,7 @@ export default function Home() {
     <main id="top">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Marcous De Villa, home"><span className="monogram" aria-hidden="true">MDV</span><span className="brand-copy"><strong>Marcous De Villa</strong><small>Technical SEO Lead &amp; Consultant</small></span></a>
-        <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Case studies</a><a href="#process">Process</a><a href="#about">About</a></nav>
+        <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Case studies</a><a href="#process">Process</a><a href="#about">About</a><a href="/digital-growth-team">Team package</a></nav>
         <a className="header-cta" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20enquiry">Discuss a website <span>↗</span></a>
       </header>
 
@@ -112,14 +112,32 @@ export default function Home() {
       <section className="section services" id="services" aria-labelledby="services-heading">
         <div className="section-heading"><div><p className="eyebrow light"><span /> Services</p><h2 id="services-heading">Technical SEO that reaches implementation.</h2></div><p>Engagements can begin with a focused health check, expand into a full investigation, or continue as ongoing technical oversight.</p></div>
         <div className="service-grid">{services.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
-        <div className="service-package"><div><p className="case-label">Recommended starting point</p><h3>Technical SEO Health Check</h3></div><p>A focused review of crawling, indexation, canonicals, redirects, sitemaps, internal linking, Search Console issues, and Core Web Vitals—with a prioritized action plan and developer-ready requirements for critical findings.</p><a className="button primary" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20Health%20Check">Ask about the health check <span>↗</span></a></div>
+        <div className="service-package"><div><p className="case-label">Recommended starting point</p><h3>Technical SEO Health Check</h3><small>Ongoing SEO support from <strong>$350/week per website</strong></small></div><p>A focused review of crawling, indexation, canonicals, redirects, sitemaps, internal linking, Search Console issues, and Core Web Vitals—with a prioritized action plan and developer-ready requirements for critical findings.</p><a className="button primary" data-event="seo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20Health%20Check">Ask about the health check <span>↗</span></a></div>
+      </section>
+
+      <section className="section team-teaser" aria-labelledby="team-teaser-heading">
+        <div className="team-teaser-panel">
+          <div className="team-teaser-copy">
+            <p className="eyebrow light"><span /> Client expansion</p>
+            <h2 id="team-teaser-heading">Need more than SEO?</h2>
+            <h3>One point of contact. Multiple specialists. <em>AI-enabled execution.</em></h3>
+            <p>For clients who need support beyond organic search, I lead a multidisciplinary digital growth team covering paid acquisition, social media, landing pages, funnels, creative production, video, and digital operations.</p>
+            <div className="capability-row" aria-label="Team capabilities"><span>SEO</span><span>Google Ads</span><span>Meta Ads</span><span>TikTok Ads</span><span>Social Media</span><span>ClickFunnels</span><span>Creative</span><span>Video</span><span>Digital Operations</span></div>
+          </div>
+          <aside className="team-teaser-offer">
+            <p>Digital Growth Team</p><strong>From $1,500<small>/week</small></strong>
+            <span>Specialist-led. AI-enabled. Human-reviewed.</span>
+            <a className="button primary" data-event="team_package_cta_click" href="/digital-growth-team">Explore the team package <b>→</b></a>
+          </aside>
+        </div>
+        <p className="team-microcopy">Designed for clients who need coordinated execution across multiple digital functions without managing several separate specialists.</p>
       </section>
 
       <section className="section about" id="about" aria-labelledby="about-heading">
         <p className="eyebrow"><span /> About Marcous</p><div className="about-grid"><h2 id="about-heading">Technical depth.<br />Clear direction.<br /><em>Calm ownership.</em></h2><div><p>I&apos;m a technical SEO specialist with a development background in Laravel and full-stack web projects. That experience helps me investigate SEO issues at the implementation level, communicate clearly with developers, and distinguish reporting symptoms from actual technical causes.</p><p>My work does not stop after an audit is delivered. I create implementation-ready requirements, support development and content teams, verify deployed changes, and monitor whether the intended search signals are working correctly.</p><p>I&apos;ve worked across financial services, consumer platforms, healthcare, professional services, and content-driven websites, with a particular focus on crawlability, indexation, canonicals, redirects, site architecture, and technical quality assurance.</p><p>Based in the Philippines, I&apos;m comfortable collaborating asynchronously with distributed teams and documenting decisions so implementation does not depend on another meeting.</p></div></div>
       </section>
 
-      <section className="final-cta" aria-labelledby="contact-heading"><p className="eyebrow light"><span /> Start with the symptoms</p><h2 id="contact-heading">Tell me what is happening with your website.</h2><p>If your team is dealing with indexation problems, conflicting URLs, technical regressions, or an audit that has not reached production, tell me what you are seeing and what has already been attempted.</p><a className="button primary" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20website%20discussion">Discuss your website <span>↗</span></a></section>
+      <section className="final-cta" aria-labelledby="contact-heading"><p className="eyebrow light"><span /> Start with the symptoms</p><h2 id="contact-heading">Tell me what is happening with your website.</h2><p>If your team is dealing with indexation problems, conflicting URLs, technical regressions, or an audit that has not reached production, tell me what you are seeing and what has already been attempted.</p><div className="cta-pair"><a className="button primary" data-event="seo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20website%20discussion">Discuss your website <span>↗</span></a><a className="button secondary" href="/digital-growth-team">Need broader support? View the team <span>→</span></a></div></section>
 
       <footer><div className="footer-brand"><strong>Marcous Alexis De Villa</strong><span>Technical SEO Lead &amp; Organic Search Consultant</span></div><a href="mailto:devillamarcousalexis@gmail.com">devillamarcousalexis@gmail.com <span>↗</span></a><div className="footer-bottom"><span>© 2026 Marcous Alexis De Villa</span><span>Calapan City, Philippines · Available for remote work</span></div></footer>
     </main>
