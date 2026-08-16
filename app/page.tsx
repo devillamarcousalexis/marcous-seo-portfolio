@@ -1,3 +1,5 @@
+import styles from "./aeo.module.css";
+
 const problems = [
   ["01", "Important pages are not being indexed", "Separate genuine indexation barriers from URLs that do not belong in search."],
   ["02", "Multiple URLs compete for the same intent", "Clarify page ownership and consolidate signals without removing useful coverage."],
@@ -23,6 +25,43 @@ const decisions = [
   ["Canonical difference", "Compare declared, rendered, linked, sitemap, and Google-selected canonical signals."],
   ["Orphan URL", "Confirm whether the page is valuable, obsolete, newly published, or intentionally isolated."],
   ["Long title", "Assess search intent and SERP clarity before shortening useful wording."],
+];
+
+const aeoCapabilities = [
+  {
+    number: "01",
+    title: "Retrieval eligibility",
+    question: "Can search and answer systems reliably access and interpret the right pages?",
+    scope: "Evaluate relevant crawling, indexability, canonicals, robots controls, rendered content, structured data, internal discovery, sitemaps, and answer-engine retrieval constraints.",
+  },
+  {
+    number: "02",
+    title: "Entity understanding",
+    question: "Do answer systems understand what the business is, what it offers, and where it operates?",
+    scope: "Reconcile website content, structured data, approved business information, services, locations, claims, entities, and external corroborating sources.",
+  },
+  {
+    number: "03",
+    title: "AI visibility testing",
+    question: "Does the business appear when people ask realistic branded and non-branded questions?",
+    scope: "Run controlled prompt observations across relevant AI search and answer platforms using stable prompts and documented test conditions.",
+    platforms: "Potential coverage: ChatGPT · Perplexity · Gemini · Claude · Copilot",
+  },
+  {
+    number: "04",
+    title: "Citation & competitor analysis",
+    question: "Which businesses and sources are answer engines relying on instead?",
+    scope: "Inspect company mentions, recommendations, citations, exact cited URLs, third-party sources, competitors, answer accuracy, and recurring source patterns.",
+  },
+];
+
+const aeoLifecycle = [
+  ["01", "INVESTIGATE", "Cross-match website, business, search, AI visibility, citation, entity, and competitor evidence."],
+  ["02", "AUDIT", "Document what the evidence proves, why it matters, and the supported root cause."],
+  ["03", "HUMAN DIAGNOSIS", "Review findings before anything becomes an implementation task."],
+  ["04", "HANDOFF", "Convert only approved findings into production-ready implementation requirements."],
+  ["05", "IMPLEMENT", "Deploy controlled changes through the appropriate owner."],
+  ["06", "VALIDATE", "Separate successful implementation from delayed changes in AI visibility or answer behavior."],
 ];
 
 const caseStudies = [
@@ -61,6 +100,7 @@ const services = [
   ["Content architecture", "Keyword-to-URL ownership, cannibalization, internal linking, and keep, refresh, merge, redirect, or remove decisions."],
   ["Implementation and verification", "Developer-ready handoffs, WordPress and Laravel support, migration QA, deployment validation, and regression checks."],
   ["Monthly technical oversight", "Technical monitoring, new-page QA, implementation follow-through, KPI history, and cross-functional support."],
+  ["AEO & AI Search Visibility Audits", "Evidence-driven investigation of AI search visibility, retrieval eligibility, entity understanding, answer accuracy, citations, recommendations, competitors, and known AI referral performance across relevant answer platforms."],
 ];
 
 export default function Home() {
@@ -77,7 +117,7 @@ export default function Home() {
           <p className="eyebrow"><span /> Technical SEO Lead &amp; Organic Search Consultant</p>
           <h1 id="hero-title">Technical SEO recommendations that <em>make it into production.</em></h1>
           <p className="hero-intro">I help growing businesses diagnose crawling, indexation, page-ownership, and website-quality issues—then translate the findings into prioritized developer handoffs and verify the implementation after deployment.</p>
-          <p className="service-line">Technical audits <i>·</i> Indexation diagnostics <i>·</i> Content architecture <i>·</i> Implementation QA</p>
+          <p className="service-line">Technical audits <i>·</i> Indexation diagnostics <i>·</i> Content architecture <i>·</i> AI search visibility <i>·</i> Implementation QA</p>
           <div className="hero-actions"><a className="button primary" href="#work">View technical SEO work <span>↓</span></a><a className="button secondary" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20enquiry">Discuss a website <span>↗</span></a></div>
           <p className="trust-line">Google Search Console · Screaming Frog · GA4 · WordPress · Laravel · Cloudflare</p>
         </div>
@@ -104,6 +144,25 @@ export default function Home() {
         <div className="decision-table" role="table" aria-label="Examples of findings and required investigation"><div className="decision-head" role="row"><span role="columnheader">Tool finding</span><span role="columnheader">Investigation required</span></div>{decisions.map(([finding, investigation]) => <div className="decision-row" role="row" key={finding}><strong role="cell">{finding}</strong><span role="cell">{investigation}</span></div>)}</div>
       </section>
 
+      <section className={`section ${styles.section}`} id="ai-search-visibility" aria-labelledby="ai-search-heading">
+        <div className={styles.heading}>
+          <div><p className="eyebrow light"><span /> AI Search &amp; Answer Engines</p><h2 id="ai-search-heading">AI visibility needs investigation, not guesswork.</h2></div>
+          <div className={styles.headingCopy}><p>Search visibility no longer ends with traditional search results. I investigate how businesses are discovered, understood, cited, and recommended across AI-powered search and answer platforms using the same evidence-first approach I apply to Technical SEO.</p><p>The objective is not to manufacture AI mentions. It is to establish what answer systems can retrieve, what they understand about the business, which sources they rely on, where competitors appear, and whether the resulting answers accurately represent the company.</p></div>
+        </div>
+
+        <div className={styles.capabilityGrid}>
+          {aeoCapabilities.map((item) => <article className={styles.capabilityCard} key={item.number}><span className={styles.cardNumber}>{item.number}</span><h3>{item.title}</h3><p className={styles.question}>{item.question}</p><p className={styles.scope}>{item.scope}</p>{item.platforms && <p className={styles.platforms}>{item.platforms}</p>}</article>)}
+        </div>
+
+        <div className={styles.evidence}><h3>Evidence, not AI guesswork.</h3><div className={styles.evidenceCopy}><p>AEO investigations combine technical search evidence, page-level AEO extraction, verified business information, and controlled AI prompt testing.</p><p>Where available, additional evidence such as Bing AI performance, known AI referral analytics, crawler activity, external entity sources, and historical test results can strengthen the investigation.</p><p>Missing optional evidence is treated as a limitation—not automatically as a website defect.</p></div></div>
+
+        <div className={styles.lifecycle}><div className={styles.lifecycleHeader}><h3>A controlled AEO investigation lifecycle</h3><p>The same production discipline applies to AI search: findings are investigated and reviewed before they become implementation work.</p></div><div className={styles.lifecycleGrid}>{aeoLifecycle.map(([number, title, body]) => <article className={styles.lifecycleStep} key={number}><span>{number}</span><strong>{title}</strong><p>{body}</p></article>)}</div></div>
+
+        <p className={styles.methodologyNote}><strong>An AI platform failing to mention a business is not automatically an AEO defect.</strong> The investigation determines whether the cause relates to retrieval, entity understanding, available evidence, answer usefulness, citation sources, competitive visibility, business truth, or simply an expected no-action condition.</p>
+
+        <div className={styles.cta}><p>Not sure how your business appears in AI-powered search?</p><a className={styles.ctaLink} data-event="aeo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=AI%20Search%20Visibility%20discussion">Discuss AI search visibility <span>↗</span></a></div>
+      </section>
+
       <section className="section work" id="work" aria-labelledby="work-heading">
         <div className="section-heading"><div><p className="eyebrow"><span /> Selected case studies</p><h2 id="work-heading">Evidence over adjectives.</h2></div><p>Client identities are anonymized. Figures come from retained engagement evidence, and no unverified traffic, revenue, or causal attribution is claimed.</p></div>
         <div className="case-list">{caseStudies.map((item) => <article className="case" key={item.number}><div className="case-index"><span>{item.number}</span><i /></div><div className="case-main"><p className="case-label">{item.label}</p><h3>{item.title}</h3><p className="case-context">{item.context}</p><div className="case-story"><div><h4>Problem</h4><p>{item.problem}</p></div><div><h4>Evidence</h4><p>{item.evidence}</p></div><div><h4>Decision</h4><p>{item.decision}</p></div><div><h4>Implementation</h4><p>{item.work}</p></div></div><div className="metric-grid">{item.metrics.map(([before, after, label]) => <div className="metric" key={label}><span>{label}</span><div><del>{before}</del><i>→</i><strong>{after}</strong></div><small>before / after</small></div>)}</div><div className="outcome"><h4>Verified outcome</h4><p>{item.outcome}</p></div></div></article>)}</div>
@@ -111,7 +170,7 @@ export default function Home() {
 
       <section className="section services" id="services" aria-labelledby="services-heading">
         <div className="section-heading"><div><p className="eyebrow light"><span /> Services</p><h2 id="services-heading">Technical SEO that reaches implementation.</h2></div><p>Engagements can begin with a focused health check, expand into a full investigation, or continue as ongoing technical oversight.</p></div>
-        <div className="service-grid">{services.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
+        <div className="service-grid">{services.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p>{index === 5 && <a className="service-inline-link" href="#ai-search-visibility">View AEO investigation approach →</a>}</article>)}</div>
         <div className="service-package"><div><p className="case-label">Recommended starting point</p><h3>Technical SEO Health Check</h3><small>Ongoing SEO support from <strong>$350/week per website</strong></small></div><p>A focused review of crawling, indexation, canonicals, redirects, sitemaps, internal linking, Search Console issues, and Core Web Vitals—with a prioritized action plan and developer-ready requirements for critical findings.</p><a className="button primary" data-event="seo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20Health%20Check">Ask about the health check <span>↗</span></a></div>
       </section>
 
@@ -134,7 +193,7 @@ export default function Home() {
       </section>
 
       <section className="section about" id="about" aria-labelledby="about-heading">
-        <p className="eyebrow"><span /> About Marcous</p><div className="about-grid"><h2 id="about-heading">Technical depth.<br />Clear direction.<br /><em>Calm ownership.</em></h2><div><p>I&apos;m a technical SEO specialist with a development background in Laravel and full-stack web projects. That experience helps me investigate SEO issues at the implementation level, communicate clearly with developers, and distinguish reporting symptoms from actual technical causes.</p><p>My work does not stop after an audit is delivered. I create implementation-ready requirements, support development and content teams, verify deployed changes, and monitor whether the intended search signals are working correctly.</p><p>I&apos;ve worked across financial services, consumer platforms, healthcare, professional services, and content-driven websites, with a particular focus on crawlability, indexation, canonicals, redirects, site architecture, and technical quality assurance.</p><p>Based in the Philippines, I&apos;m comfortable collaborating asynchronously with distributed teams and documenting decisions so implementation does not depend on another meeting.</p></div></div>
+        <p className="eyebrow"><span /> About Marcous</p><div className="about-grid"><h2 id="about-heading">Technical depth.<br />Clear direction.<br /><em>Calm ownership.</em></h2><div><p>I&apos;m a technical SEO specialist with a development background in Laravel and full-stack web projects. That experience helps me investigate SEO issues at the implementation level, communicate clearly with developers, and distinguish reporting symptoms from actual technical causes.</p><p>I also conduct evidence-driven AEO and AI Search Visibility investigations, combining technical retrieval analysis with business/entity validation, controlled AI prompt testing, citation analysis, and traditional search evidence.</p><p>My work does not stop after an audit is delivered. I create implementation-ready requirements, support development and content teams, verify deployed changes, and monitor whether the intended search signals are working correctly.</p><p>I&apos;ve worked across financial services, consumer platforms, healthcare, professional services, and content-driven websites, with a particular focus on crawlability, indexation, canonicals, redirects, site architecture, and technical quality assurance.</p><p>Based in the Philippines, I&apos;m comfortable collaborating asynchronously with distributed teams and documenting decisions so implementation does not depend on another meeting.</p></div></div>
       </section>
 
       <section className="final-cta" aria-labelledby="contact-heading"><p className="eyebrow light"><span /> Start with the symptoms</p><h2 id="contact-heading">Tell me what is happening with your website.</h2><p>If your team is dealing with indexation problems, conflicting URLs, technical regressions, or an audit that has not reached production, tell me what you are seeing and what has already been attempted.</p><div className="cta-pair"><a className="button primary" data-event="seo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20website%20discussion">Discuss your website <span>↗</span></a><a className="button secondary" href="/digital-growth-team">Need broader support? View the team <span>→</span></a></div></section>
