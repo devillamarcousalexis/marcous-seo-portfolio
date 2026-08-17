@@ -16,14 +16,14 @@ const capabilities = [
   { number: "01", title: "SEO & Organic Growth", lead: "Marcous", items: ["Technical SEO and audits", "Crawl and indexation diagnostics", "Keyword and search-intent research", "On-page and content optimization", "Internal linking and site architecture", "Measurement, reporting, and implementation QA"] },
   { number: "02", title: "Paid Acquisition", lead: "Myr + Renz", items: ["Google Ads", "Meta Ads", "TikTok Ads", "Campaign support", "Paid-media operations"] },
   { number: "03", title: "Social Media", lead: "Myr + Renz", items: ["Social media management", "Publishing and operational support", "Campaign coordination", "Supporting administrative workflows"] },
-  { number: "04", title: "Web, Funnels & Conversion", lead: "Annie", items: ["ClickFunnels", "Landing pages", "Funnel implementation", "Wix", "Conversion-supporting page production"] },
-  { number: "05", title: "Creative & Video", lead: "Annie", items: ["Canva and graphics", "Marketing assets", "CapCut", "Video editing", "Higgsfield"] },
+  { number: "04", title: "Web, Funnels & Conversion", lead: "Crystel", items: ["ClickFunnels", "Landing pages", "Funnel implementation", "Wix", "Conversion-supporting page production"] },
+  { number: "05", title: "Creative & Video", lead: "Crystel", items: ["Canva and graphics", "Marketing assets", "CapCut", "Video editing", "Higgsfield"] },
   { number: "06", title: "Digital & Investor Operations", lead: "Myr + Renz", items: ["Administrative and IT support", "Digital operations", "Investor-platform administrative support", "Covercy", "InvestNext", "Cash Flow Portal"] },
 ];
 
 const team = [
   { initials: "MDV", name: "Marcous Alexis De Villa", role: "Technical SEO & Digital Strategy Lead", summary: "Primary client contact and account lead.", items: ["Technical SEO", "Organic search strategy", "Implementation guidance", "Measurement and reporting", "Coordination and QA"] },
-  { initials: "CAM", name: 'Crystel “Annie” Mendoza', role: "Web, Funnel & Creative Specialist", summary: "Owns conversion-supporting web and creative production.", items: ["ClickFunnels and landing pages", "Wix and funnel implementation", "Canva and creative assets", "CapCut and video editing", "Higgsfield"] },
+  { initials: "CAM", name: 'Crystel Mendoza', role: "Web, Funnel & Creative Specialist", summary: "Owns conversion-supporting web and creative production.", items: ["ClickFunnels and landing pages", "Wix and funnel implementation", "Canva and creative assets", "CapCut and video editing", "Higgsfield"] },
   { initials: "MAM", name: "Myr Andiela Mendoza", role: "Paid Media & Digital Operations Specialist", summary: "Supports acquisition, social, and digital operations.", items: ["Google, Meta, and TikTok Ads", "Social media management", "Administrative and IT support", "Covercy", "InvestNext and Cash Flow Portal"] },
   { initials: "RBT", name: "Renz Bryan Tabay", role: "Paid Media & Digital Operations Specialist", summary: "Supports acquisition, social, and digital operations.", items: ["Google, Meta, and TikTok Ads", "Social media management", "Administrative and IT support", "Covercy", "InvestNext and Cash Flow Portal"] },
 ];

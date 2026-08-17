@@ -1,5 +1,39 @@
 import styles from "./aeo.module.css";
 
+const systems = [
+  {
+    number: "01",
+    title: "Technical SEO",
+    tagline: "Find what is limiting search performance.",
+    body: "Investigate crawling, indexation, canonicals, redirects, architecture, rendering, structured data, Core Web Vitals, migrations, implementation, and validation to isolate root causes and define production-safe fixes.",
+    className: "primary-system",
+  },
+  {
+    number: "02",
+    title: "Search Opportunity Analysis",
+    tagline: "Find where organic growth is justified.",
+    body: "Combine search demand, Search Console evidence, page targeting, intent, architecture, and SERP evidence to decide what deserves improvement, expansion, creation, internal-link support—or protection.",
+    className: "",
+  },
+  {
+    number: "03",
+    title: "AEO / GEO & AI Search Visibility",
+    tagline: "Understand and improve visibility across emerging search experiences.",
+    body: "Investigate retrieval, entity understanding, answer readiness, citations, sources, prompt-to-page relationships, crawler access, and measurable AI-search visibility where evidence permits.",
+    className: "",
+  },
+];
+
+const opportunityQuestions = [
+  "What should we improve?",
+  "Where is targeting weak?",
+  "Where is demand fragmented?",
+  "What should expand?",
+  "What deserves a new page?",
+  "Where can internal linking help?",
+  "What should we protect?",
+];
+
 const problems = [
   ["01", "Important pages are not being indexed", "Separate genuine indexation barriers from URLs that do not belong in search."],
   ["02", "Multiple URLs compete for the same intent", "Clarify page ownership and consolidate signals without removing useful coverage."],
@@ -100,24 +134,24 @@ const services = [
   ["Content architecture", "Keyword-to-URL ownership, cannibalization, internal linking, and keep, refresh, merge, redirect, or remove decisions."],
   ["Implementation and verification", "Developer-ready handoffs, WordPress and Laravel support, migration QA, deployment validation, and regression checks."],
   ["Monthly technical oversight", "Technical monitoring, new-page QA, implementation follow-through, KPI history, and cross-functional support."],
-  ["AEO & AI Search Visibility Audits", "Evidence-driven investigation of AI search visibility, retrieval eligibility, entity understanding, answer accuracy, citations, recommendations, competitors, and known AI referral performance across relevant answer platforms."],
+  ["AEO / GEO & AI Search Visibility Audits", "Evidence-driven investigation of AI search visibility, retrieval eligibility, entity understanding, answer accuracy, citations, sources, recommendations, competitors, and known AI referral performance across relevant answer platforms."],
 ];
 
 export default function Home() {
   return (
     <main id="top">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Marcous De Villa, home"><span className="monogram" aria-hidden="true">MDV</span><span className="brand-copy"><strong>Marcous De Villa</strong><small>Technical SEO Lead &amp; Consultant</small></span></a>
+        <a className="brand" href="#top" aria-label="Marcous De Villa, home"><span className="monogram" aria-hidden="true">MDV</span><span className="brand-copy"><strong>Marcous De Villa</strong><small>Senior Technical SEO Specialist</small></span></a>
         <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Case studies</a><a href="#process">Process</a><a href="#about">About</a><a href="/digital-growth-team">Team package</a></nav>
         <a className="header-cta" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20enquiry">Discuss a website <span>↗</span></a>
       </header>
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <p className="eyebrow"><span /> Technical SEO Lead &amp; Organic Search Consultant</p>
-          <h1 id="hero-title">Technical SEO recommendations that <em>make it into production.</em></h1>
-          <p className="hero-intro">I help growing businesses diagnose crawling, indexation, page-ownership, and website-quality issues—then translate the findings into prioritized developer handoffs and verify the implementation after deployment.</p>
-          <p className="service-line">Technical audits <i>·</i> Indexation diagnostics <i>·</i> Content architecture <i>·</i> AI search visibility <i>·</i> Implementation QA</p>
+          <p className="eyebrow"><span /> Senior Technical SEO Specialist</p>
+          <h1 id="hero-title">Technical SEO that finds the problem — <em>and the next opportunity.</em></h1>
+          <p className="hero-intro">I help growing businesses diagnose technical search problems, identify evidence-backed organic growth opportunities, and extend the same evidence-first methodology into AEO/GEO and AI Search Visibility—then turn approved findings into production-safe actions and validate the result.</p>
+          <p className="service-line">Technical SEO <i>·</i> Search Opportunity Analysis <i>·</i> AEO/GEO &amp; AI Search Visibility</p>
           <div className="hero-actions"><a className="button primary" href="#work">View technical SEO work <span>↓</span></a><a className="button secondary" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20enquiry">Discuss a website <span>↗</span></a></div>
           <p className="trust-line">Google Search Console · Screaming Frog · GA4 · WordPress · Laravel · Cloudflare</p>
         </div>
@@ -127,6 +161,21 @@ export default function Home() {
           <dl><div><dt>01</dt><dd>Evidence collection</dd><span>INVESTIGATE</span></div><div><dt>02</dt><dd>Technical diagnosis</dd><span>VALIDATE</span></div><div><dt>03</dt><dd>Implementation handoff</dd><span>SPECIFY</span></div><div><dt>04</dt><dd>Post-deployment QA</dd><span>VERIFY</span></div></dl>
           <p className="console-note">Development-literate. Production-conscious. Clear enough for developers and stakeholders.</p>
         </aside>
+      </section>
+
+      <section className="section systems" aria-labelledby="systems-heading">
+        <div className="section-heading">
+          <div><p className="eyebrow"><span /> Connected search systems</p><h2 id="systems-heading">Three systems. One evidence-first methodology.</h2></div>
+          <p>Technical SEO remains the foundation. Search Opportunity Analysis extends verified search evidence into defensible growth decisions, while AEO/GEO applies the same investigation discipline to emerging search experiences.</p>
+        </div>
+        <div className="systems-grid">
+          {systems.map((item) => <article className={`system-card ${item.className}`} key={item.number}><span className="system-number">{item.number}</span><h3>{item.title}</h3><strong>{item.tagline}</strong><p>{item.body}</p></article>)}
+        </div>
+        <div className="methodology-strip" aria-label="Shared methodology"><span>Evidence first</span><i>→</i><span>Human diagnosis</span><i>→</i><span>Production-safe action</span><i>→</i><span>Validation</span></div>
+        <div className="opportunity-questions">
+          <div className="opportunity-copy"><p className="case-label">Search Opportunity Analysis</p><h3>Use search evidence to determine where organic growth is actually justified.</h3><p>Instead of generating a large keyword list, the system is built to answer the practical questions that determine what deserves action—and what should stay untouched.</p></div>
+          <div className="opportunity-grid">{opportunityQuestions.map((question, index) => <div key={question}><span>0{index + 1}</span><strong>{question}</strong></div>)}</div>
+        </div>
       </section>
 
       <section className="section problems" aria-labelledby="problems-heading">
@@ -146,7 +195,7 @@ export default function Home() {
 
       <section className={`section ${styles.section}`} id="ai-search-visibility" aria-labelledby="ai-search-heading">
         <div className={styles.heading}>
-          <div><p className="eyebrow light"><span /> AI Search &amp; Answer Engines</p><h2 id="ai-search-heading">AI visibility needs investigation, not guesswork.</h2></div>
+          <div><p className="eyebrow light"><span /> AEO / GEO &amp; AI Search Visibility</p><h2 id="ai-search-heading">AI visibility needs investigation, not guesswork.</h2></div>
           <div className={styles.headingCopy}><p>Search visibility no longer ends with traditional search results. I investigate how businesses are discovered, understood, cited, and recommended across AI-powered search and answer platforms using the same evidence-first approach I apply to Technical SEO.</p><p>The objective is not to manufacture AI mentions. It is to establish what answer systems can retrieve, what they understand about the business, which sources they rely on, where competitors appear, and whether the resulting answers accurately represent the company.</p></div>
         </div>
 
@@ -170,7 +219,7 @@ export default function Home() {
 
       <section className="section services" id="services" aria-labelledby="services-heading">
         <div className="section-heading"><div><p className="eyebrow light"><span /> Services</p><h2 id="services-heading">Technical SEO that reaches implementation.</h2></div><p>Engagements can begin with a focused health check, expand into a full investigation, or continue as ongoing technical oversight.</p></div>
-        <div className="service-grid">{services.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p>{index === 5 && <a className="service-inline-link" href="#ai-search-visibility">View AEO investigation approach →</a>}</article>)}</div>
+        <div className="service-grid">{services.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p>{index === 5 && <a className="service-inline-link" href="#ai-search-visibility">View AEO/GEO investigation approach →</a>}</article>)}</div>
         <div className="service-package"><div><p className="case-label">Recommended starting point</p><h3>Technical SEO Health Check</h3><small>Ongoing SEO support from <strong>$350/week per website</strong></small></div><p>A focused review of crawling, indexation, canonicals, redirects, sitemaps, internal linking, Search Console issues, and Core Web Vitals—with a prioritized action plan and developer-ready requirements for critical findings.</p><a className="button primary" data-event="seo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20Health%20Check">Ask about the health check <span>↗</span></a></div>
       </section>
 
@@ -193,12 +242,12 @@ export default function Home() {
       </section>
 
       <section className="section about" id="about" aria-labelledby="about-heading">
-        <p className="eyebrow"><span /> About Marcous</p><div className="about-grid"><h2 id="about-heading">Technical depth.<br />Clear direction.<br /><em>Calm ownership.</em></h2><div><p>I&apos;m a technical SEO specialist with a development background in Laravel and full-stack web projects. That experience helps me investigate SEO issues at the implementation level, communicate clearly with developers, and distinguish reporting symptoms from actual technical causes.</p><p>I also conduct evidence-driven AEO and AI Search Visibility investigations, combining technical retrieval analysis with business/entity validation, controlled AI prompt testing, citation analysis, and traditional search evidence.</p><p>My work does not stop after an audit is delivered. I create implementation-ready requirements, support development and content teams, verify deployed changes, and monitor whether the intended search signals are working correctly.</p><p>I&apos;ve worked across financial services, consumer platforms, healthcare, professional services, and content-driven websites, with a particular focus on crawlability, indexation, canonicals, redirects, site architecture, and technical quality assurance.</p><p>Based in the Philippines, I&apos;m comfortable collaborating asynchronously with distributed teams and documenting decisions so implementation does not depend on another meeting.</p></div></div>
+        <p className="eyebrow"><span /> About Marcous</p><div className="about-grid"><h2 id="about-heading">Technical depth.<br />Clear direction.<br /><em>Calm ownership.</em></h2><div><p>I&apos;m a Senior Technical SEO Specialist with a development background in Laravel and full-stack web projects. That experience helps me investigate SEO issues at the implementation level, communicate clearly with developers, and distinguish reporting symptoms from actual technical causes.</p><p>I also use verified search evidence to identify and prioritize organic growth opportunities through Search Opportunity Analysis, including page improvement, query-to-page alignment, content expansion, fragmentation, internal linking, new-page justification, and protect/no-action decisions.</p><p>I conduct evidence-driven AEO / GEO and AI Search Visibility investigations, combining technical retrieval analysis with business/entity validation, controlled AI prompt testing, citation analysis, and traditional search evidence.</p><p>My work does not stop after an audit is delivered. I create implementation-ready requirements, support development and content teams, verify deployed changes, and monitor whether the intended search signals are working correctly.</p><p>I&apos;ve worked across financial services, consumer platforms, healthcare, professional services, and content-driven websites, with a particular focus on crawlability, indexation, canonicals, redirects, site architecture, and technical quality assurance.</p><p>Based in the Philippines, I&apos;m comfortable collaborating asynchronously with distributed teams and documenting decisions so implementation does not depend on another meeting.</p></div></div>
       </section>
 
-      <section className="final-cta" aria-labelledby="contact-heading"><p className="eyebrow light"><span /> Start with the symptoms</p><h2 id="contact-heading">Tell me what is happening with your website.</h2><p>If your team is dealing with indexation problems, conflicting URLs, technical regressions, or an audit that has not reached production, tell me what you are seeing and what has already been attempted.</p><div className="cta-pair"><a className="button primary" data-event="seo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20website%20discussion">Discuss your website <span>↗</span></a><a className="button secondary" href="/digital-growth-team">Need broader support? View the team <span>→</span></a></div></section>
+      <section className="final-cta" aria-labelledby="contact-heading"><p className="eyebrow light"><span /> Start with the symptoms</p><h2 id="contact-heading">Tell me what is happening with your website.</h2><p>If your team is dealing with indexation problems, conflicting URLs, technical regressions, an audit that has not reached production, or an organic search opportunity that needs evidence before action, tell me what you are seeing and what has already been attempted.</p><div className="cta-pair"><a className="button primary" data-event="seo_service_cta_click" href="mailto:devillamarcousalexis@gmail.com?subject=Technical%20SEO%20website%20discussion">Discuss your website <span>↗</span></a><a className="button secondary" href="/digital-growth-team">Need broader support? View the team <span>→</span></a></div></section>
 
-      <footer><div className="footer-brand"><strong>Marcous Alexis De Villa</strong><span>Technical SEO Lead &amp; Organic Search Consultant</span></div><a href="mailto:devillamarcousalexis@gmail.com">devillamarcousalexis@gmail.com <span>↗</span></a><div className="footer-bottom"><span>© 2026 Marcous Alexis De Villa</span><span>Calapan City, Philippines · Available for remote work</span></div></footer>
+      <footer><div className="footer-brand"><strong>Marcous Alexis De Villa</strong><span>Senior Technical SEO Specialist</span></div><a href="mailto:devillamarcousalexis@gmail.com">devillamarcousalexis@gmail.com <span>↗</span></a><div className="footer-bottom"><span>© 2026 Marcous Alexis De Villa</span><span>Calapan City, Philippines · Available for remote work</span></div></footer>
     </main>
   );
 }
