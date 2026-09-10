@@ -8,9 +8,6 @@ declare global {
 
 export default function EventTracker() {
   useEffect(() => {
-    const pageEvent = window.location.pathname === "/digital-growth-team" ? "team_package_view" : null;
-    if (pageEvent) window.dataLayer?.push({ event: pageEvent });
-
     const track = (event: MouseEvent) => {
       const target = (event.target as HTMLElement).closest<HTMLElement>("[data-event]");
       const eventName = target?.dataset.event;

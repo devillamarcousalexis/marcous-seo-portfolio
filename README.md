@@ -1,4 +1,4 @@
-# Marcous Alexis De Villa — Technical SEO Portfolio
+# Marcous Alexis De Villa — SEO Specialist Portfolio
 
 A recruiter-focused personal portfolio built with Next.js, React, TypeScript, and Tailwind CSS.
 
