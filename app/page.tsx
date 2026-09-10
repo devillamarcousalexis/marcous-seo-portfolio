@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./aeo.module.css";
 
 const systems = [
@@ -189,7 +190,7 @@ export default function Home() {
       </section>
 
       <section className="section searchops" aria-labelledby="searchops-heading">
-        <div className="searchops-intro"><p className="eyebrow"><span /> Independent SEO Operations Project</p><h2 id="searchops-heading">SearchOps</h2><p>I built SearchOps to make SEO work more repeatable from evidence collection through diagnosis, implementation, monitoring, and reporting. It brings GSC, GA4, crawl, SERP, and governed analysis workflows into one operating system so recommendations remain traceable and implementation-focused.</p></div>
+        <div className="searchops-intro"><p className="eyebrow"><span /> Independent SEO Operations Project</p><h2 id="searchops-heading" className="sr-only">SearchOps</h2><Image className="searchops-wordmark" src="/searchops-wordmark.png" alt="" width={900} height={168} aria-hidden="true" priority={false} /><p>I built SearchOps to make SEO work more repeatable from evidence collection through diagnosis, implementation, monitoring, and reporting. It brings GSC, GA4, crawl, SERP, and governed analysis workflows into one operating system so recommendations remain traceable and implementation-focused.</p></div>
         <div className="searchops-grid"><article><span>01</span><h3>Evidence-led</h3><p>Keeps analysis tied to admitted source data instead of unsupported assumptions.</p></article><article><span>02</span><h3>Execution-focused</h3><p>Converts findings into prioritized, implementation-ready work and tracks follow-through.</p></article><article><span>03</span><h3>Measurement-aware</h3><p>Connects SEO analysis with GSC and GA4 performance review and post-implementation validation.</p></article></div>
       </section>
 
